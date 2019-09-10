@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Item table sample | tsupox</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="col-xl-10 col-lg-11 ml-auto mr-auto mt-2 mb-2">
+            <form method="POST" accept-charset="UTF-8" autocomplete="off">
+
+                <div class="card">
+                    <div class="card-header">
+                            <h2>Item Table Sample</h2>
+                    </div>
+                    <div class="card-body">
+
+                        <div class="form-group row">
+                            <label for="title" class="col-md-2 col-form-label">Title</label>
+                            <div class="col-md-8">
+                                <input class="form-control" required="required" autofocus name="title" type="text" id="title">
+                            </div>
+                        </div>
+
+                        <table class="table table-striped">
+                            <thead>
+                                <tr class="headings">
+                                    <th class="column-title">No. </th>
+                                    <th class="column-title">Items. </th>
+                                    <th class="column-title">Description </th>
+                                    <th class="column-title">UOM </th>
+                                    <th class="column-title">Qty Reg </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="even pointer">
+                                    <td class="js-row-no"></td>
+                                    <td class="form-group">
+                                        <input class="form-control" required="required" name="item_name[]" type="text">
+                                        <input class="js-item-id" name="item_id[]" type="hidden">
+                                    </td>
+                                    <td class="form-group">
+                                        <textarea class="form-control" required="required" name="description[]" cols="50" rows="10"></textarea>
+                                    </td>
+                                    <td class="form-group">
+                                        <select class="form-control" required="required" name="uom[]"><option value="EACH">EACH</option><option value="CARTON">CARTON</option><option value="PACK">PACK</option><option value="CASE">CASE</option><option value="PALLET">PALLET</option><option value="REAM">REAM</option><option value="BALE">BALE</option><option value="BOTTLE">BOTTLE</option><option value="TUBE">TUBE</option><option value="VIALS">VIALS</option><option value="LITERS">LITERS</option><option value="METERS">METERS</option></select>
+                                    </td>
+                                    <td class="form-group">
+                                        <input class="form-control" required="required" name="quantity[]" type="text">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card-footer">
+                        <!-- Cancel -->
+                        <a href="#" class="btn btn-outline-dark"><i class="fa fa-backward"></i> Cancel</a>
+                        <!-- Submit -->
+                        <span data-toggle="tooltip" data-placement="top" title="Create requisition">
+                            <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Save</button>
+                        </span>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="itemTable.js"></script>
+
+    <script language="javascript">
+        $(document).ready(function(){
+            $('table').itemTable();
+        });
+    </script>
+</body>
+</html>
